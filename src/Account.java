@@ -8,6 +8,8 @@ public class Account {
 
   ArrayList <Database> stock = new ArrayList<>();
 
+  int counter = 0;
+
     Scanner sc = new Scanner(System.in);
     Random rn = new Random();
 
@@ -28,34 +30,52 @@ public class Account {
             d1.stockNames = stname;
             System.out.print("Enter the number of shares u want to purchase : ");
             float snumber = sc.nextFloat();
-            d1.numberOfShare = snumber;
+            d1.setNumberOfShare(snumber);
             float sprice = rn.nextFloat(400,1200);
-            d1.sharePrice = sprice;
+            d1.setSharePrice(sprice);
             System.out.print("The current price of the " + stname  +" share : " + sprice);
             System.out.println("Press Y if you wish to enter more stocks :");
             option = sc.next().charAt(0);
             stock.add(d1);
 
         }
-        System.out.println("The Total value of" + d1.stockNames + "is : "+ d1.stockCurrentValue);
-        System.out.println("The Total value of all the stocks is : "+ d1.totalValue);
+        counter ++;
+        //System.out.println("The Total value of" + d1.stockNames + "is : "+ d1.stockCurrentValue);
+        //System.out.println("The Total value of all the stocks is : "+ d1.totalValue);
 
     }
 
 
     void currentValueCalculator(){
-        Database d1 = new Database();
-        d1.stockCurrentValue = d1.numberOfShare * d1.sharePrice;
-     //   stock.add(d1);
+
+        float cv;
+        for(int i= 0;i<stock.size();i++) {
+          Database d1 = stock.get(i);
+            d1.stockCurrentValue = d1.numberOfShare * d1.sharePrice;
+        }
+
 
 
     }
 
     void totalValueCalculator()
     {
-        Database d1 = new Database();
-       d1.totalValue = d1.totalValue + d1.stockCurrentValue;
-     //  stock.add(d1);
+        float totalValue = 0;
+        for(int i= 0;i<stock.size();i++)
+        {
+
+            Database d1 = stock.get(i);
+           totalValue = (totalValue + d1.stockCurrentValue);
+
+        }
+        System.out.println("The Total value of all the stocks is : "+ totalValue);
+
+    }
+
+
+    void debit(){
+
+
 
     }
     void displayDetails()

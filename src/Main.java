@@ -5,8 +5,34 @@ class Database{
     String stockNames;
     float numberOfShare;
     float sharePrice;
-    float stockCurrentValue;
-    float totalValue = 0;
+    float stockCurrentValue = 0;
+
+
+    public float getNumberOfShare() {
+        return numberOfShare;
+    }
+
+    public void setNumberOfShare(float numberOfShare) {
+        this.numberOfShare = numberOfShare;
+    }
+
+    public float getSharePrice() {
+        return sharePrice;
+    }
+
+    public void setSharePrice(float sharePrice) {
+        this.sharePrice = sharePrice;
+    }
+
+    public float getStockCurrentValue() {
+        return stockCurrentValue;
+    }
+
+    public void setStockCurrentValue(float stockCurrentValue) {
+        this.stockCurrentValue = stockCurrentValue;
+    }
+
+
 
     @Override
     public String toString() {
@@ -15,9 +41,16 @@ class Database{
                 ", numberOfShare=" + numberOfShare +
                 ", sharePrice=" + sharePrice +
                 ", stockCurrentValue=" + stockCurrentValue +
-                ", totalValue=" + totalValue +
                 '}';
+
+
     }
+
+
+
+
+
+
 }
 
 
@@ -30,8 +63,9 @@ public class Main {
         acc1.storeDetails();
         acc1.displayDetails();
         acc1.currentValueCalculator();
-        acc1.totalValueCalculator();
         acc1.displayDetails();
+        acc1.totalValueCalculator();
+       // acc1.displayDetails();
 
     }
 }
