@@ -65,7 +65,7 @@ public class Main {
         acc1.currentValueCalculator();
         acc1.displayDetails();
         acc1.totalValueCalculator();
-       // acc1.displayDetails();
+       acc1.debit();
 
     }
 }
